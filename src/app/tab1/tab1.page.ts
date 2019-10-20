@@ -6,9 +6,6 @@ import {
   LocationService,
   GoogleMapOptions
 } from '@ionic-native/google-maps';
-import { ContacttoPage } from './../contactto/contactto.page';
-import { EncounterPage } from './../encounter/encounter.page';
-import { ReportFormPage } from '../report-form/report-form.page';
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 @Component({
@@ -17,6 +14,62 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+
+  private arrLocations =    [
+    {
+      latitude: 5.46929,
+      longitude: -73.54771
+  },
+  {
+      latitude: 5.44557,
+      longitude: -73.59
+  },
+  {
+      latitude: 5.44946,
+      longitude: -73.57177
+  },
+  {
+      latitude: 5.45551,
+      longitude: -73.56728,
+  },
+  {
+      latitude: 5.46378,
+      longitude: -73.55542
+  },
+  {
+      latitude: 5.46708,
+      longitude: -73.55512
+  },
+  {
+      latitude: 5.46709,
+      longitude: -73.53389
+  },
+  {
+      latitude: 5.46983,
+      longitude: -73.55116
+  },
+  {
+      latitude: 5.47037,
+      longitude: -73.5546
+  },
+  {
+      latitude: 5.47039,
+      longitude: -73.53336
+  },
+  {
+      latitude: 5.47203,
+      longitude: -73.54372
+  },
+  {
+      latitude: 5.47366,
+      longitude: -73.55408
+  },
+  {
+      latitude: 5.47423,
+      longitude: -73.53629
+  }
+  ];
+
   map: GoogleMap;
   constructor(public navCtrl: NavController) {}
   ngOnInit() {
@@ -36,8 +89,8 @@ export class Tab1Page {
 
   loadMap() {
     Environment.setEnv({
-      API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyDnCZdDEaLkUICEtC7J2_PfihoQyJO89Bk',
-      API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyDnCZdDEaLkUICEtC7J2_PfihoQyJO89Bk'
+      API_KEY_FOR_BROWSER_RELEASE: 'API_KEY',
+      API_KEY_FOR_BROWSER_DEBUG: 'API_KEY'
     });
     LocationService.getMyLocation().then((myLocation: MyLocation) => {
       const options: GoogleMapOptions = {
@@ -47,63 +100,15 @@ export class Tab1Page {
         }
       };
       this.map = GoogleMaps.create('map_canvas', options);
+      this.arrLocations.forEach(element => {
+        this.map.addMarkerSync({
+          position: {
+            lat: element.latitude,
+            lng:  element.longitude
+          }
+        });
+      });
     });
-
-    const arrLocations =    [
-      {
-        latitude: 5.46929,
-        longitude: -73.54771
-    },
-    {
-        latitude: 5.44557,
-        longitude: -73.59
-    },
-    {
-        latitude: 5.44946,
-        longitude: -73.57177
-    },
-    {
-        latitude: 5.45551,
-        longitude: -73.56728,
-    },
-    {
-        latitude: 5.46378,
-        longitude: -73.55542
-    },
-    {
-        latitude: 5.46708,
-        longitude: -73.55512
-    },
-    {
-        latitude: 5.46709,
-        longitude: -73.53389
-    },
-    {
-        latitude: 5.46983,
-        longitude: -73.55116
-    },
-    {
-        latitude: 5.47037,
-        longitude: -73.5546
-    },
-    {
-        latitude: 5.47039,
-        longitude: -73.53336
-    },
-    {
-        latitude: 5.47203,
-        longitude: -73.54372
-    },
-    {
-        latitude: 5.47366,
-        longitude: -73.55408
-    },
-    {
-        latitude: 5.47423,
-        longitude: -73.53629
-    }
-    ];
-
     // this.map.addKmlOverlay({
     //   url: "assets/MODIS_C6_USA_contiguous_and_Hawaii_24h.kml",
     //   clickable: true,
