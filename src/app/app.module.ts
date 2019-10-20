@@ -12,6 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GoogleMaps } from "@ionic-native/google-maps";
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 
@@ -20,6 +21,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
+    GoogleMaps,
     Camera,
     StatusBar,
     SplashScreen,
