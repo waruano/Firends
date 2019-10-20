@@ -1,4 +1,9 @@
+
 import { Component } from '@angular/core';
+import { ReportFormPage } from '../report-form/report-form.page';
+import { NavController } from '@ionic/angular';
+
+
 
 @Component({
   selector: 'app-tab1',
@@ -6,7 +11,10 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
+  constructor(public navCtrl: NavController) {}
 
-  constructor() {}
+  Report(){
+    this.navCtrl.navigateForward('/report-form');
+   }
 
 }
