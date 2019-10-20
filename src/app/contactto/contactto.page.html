@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar slot="start">
+      <ion-buttons><ion-back-button defaultHref="/"></ion-back-button></ion-buttons>
+      <img src="/assets/logoFirends.png" style="height: 3em;" >
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <ion-list>
+        <ion-item>
+          <ion-input [(ngModel)] ="message" placeholder = "Enter message"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)] ="file" placeholder = "Enter file"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)] ="link" placeholder = "Enter link"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)] ="subject" placeholder = "Enter subject"></ion-input>
+        </ion-item> 
+      </ion-list>
+      <ion-button style="margin-right: 1em; width: 100%;" (click)="SaveContact()">Save</ion-button>
+    </ion-content>
+  
