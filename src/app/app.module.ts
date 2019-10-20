@@ -9,12 +9,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GoogleMaps } from "@ionic-native/google-maps";
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
+    GoogleMaps,
     Camera,
     StatusBar,
     SplashScreen,
