@@ -6,4 +6,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+    <ion-item ></ion-item>
+    <ion-item>
+      <ion-icon slot="start" color="medium" name="alert"></ion-icon>
+      <button ion-button (click)="callNow('123')">Call Emergencies</button>
+    </ion-item>  
+    <ion-item>
+      <ion-icon slot="start" color="medium" name="person"></ion-icon>
+      <button ion-button (click)="callNow('112')">Call Police</button>
+    </ion-item>  
+    <ion-item>
+      <ion-icon slot="start" color="medium" name="flame"></ion-icon>
+      <button ion-button (click)="callNow('119')">Call Firemen</button>
+    </ion-item>  
+</ion-content>
