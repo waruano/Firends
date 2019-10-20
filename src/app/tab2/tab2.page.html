@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Reportar Incendio
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <img [src]="capturedSnapURL" /> 
+  <ion-button (click)="takeSnap()">
+    Take Snap
+  </ion-button>   
+</ion-content>

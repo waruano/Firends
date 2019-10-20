@@ -1,5 +1,7 @@
 {
   "name": "stop_fire",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
