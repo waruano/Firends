@@ -1,14 +1,14 @@
+
 import { Component } from '@angular/core';
 import {
   GoogleMaps,
   GoogleMap,
-  GoogleMapsEvent,
-  GoogleMapOptions,
-  KmlOverlay,
-  Polygon,
-  ILatLng,
   Environment,
+  MyLocation,
+  LocationService,
+  GoogleMapOptions
 } from '@ionic-native/google-maps';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -16,21 +16,30 @@ import {
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
   map: GoogleMap;
-  constructor() {}
-
+  constructor(public navCtrl: NavController) {}
   ngOnInit() {
     this.loadMap();
   }
+  Report(){
+    this.navCtrl.navigateForward('/report-form');
+   }
 
   loadMap() {
     Environment.setEnv({
       API_KEY_FOR_BROWSER_RELEASE: 'AIzaSyDnCZdDEaLkUICEtC7J2_PfihoQyJO89Bk',
       API_KEY_FOR_BROWSER_DEBUG: 'AIzaSyDnCZdDEaLkUICEtC7J2_PfihoQyJO89Bk'
-    });    
-    this.map = GoogleMaps.create('map_canvas');
-    
+    });
+    LocationService.getMyLocation().then((myLocation: MyLocation) => {
+      const options: GoogleMapOptions = {
+        camera: {
+          target: myLocation.latLng,
+          zoom: 14
+        }
+      };
+      this.map = GoogleMaps.create('map_canvas', options);
+    });
+
     const arrLocations =    [
       {
         latitude: 5.46929,
