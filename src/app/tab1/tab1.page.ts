@@ -1,5 +1,3 @@
-
-import { Component } from '@angular/core';
 import {
   GoogleMaps,
   GoogleMap,
@@ -8,8 +6,11 @@ import {
   LocationService,
   GoogleMapOptions
 } from '@ionic-native/google-maps';
+import { ContacttoPage } from './../contactto/contactto.page';
+import { EncounterPage } from './../encounter/encounter.page';
+import { ReportFormPage } from '../report-form/report-form.page';
+import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -23,7 +24,15 @@ export class Tab1Page {
   }
   Report(){
     this.navCtrl.navigateForward('/report-form');
-   }
+  }
+
+  SetEncounterPoint(){
+  this.navCtrl.navigateForward('/encounter');
+  }  
+
+  ContactTo(){
+    this.navCtrl.navigateForward('/contactto');
+  }
 
   loadMap() {
     Environment.setEnv({

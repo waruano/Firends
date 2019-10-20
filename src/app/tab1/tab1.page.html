@@ -14,13 +14,13 @@
       <ion-list-header>
         <ion-button style="margin-right: 1em; width: 100%;" (click)="Report()">Reportar</ion-button>
       </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
+      <ion-item (click)="SetEncounterPoint()">
         <ion-icon slot="start" color="medium" name="locate"></ion-icon>
-        <ion-label>Establecer Punto de Encuentro</ion-label>
+        <ion-label >Establecer Punto de Encuentro</ion-label>
       </ion-item>
-      <ion-item href="https://ionicframework.com/docs/building/scaffolding">
+      <ion-item (click)="ContactTo()">
         <ion-icon slot="start" color="medium" name="person"></ion-icon>
-        <ion-label>Datos de Contacto</ion-label>
+        <ion-label >Datos de Contacto</ion-label>
       </ion-item>     
     </ion-list>
 </ion-content>
