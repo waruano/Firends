@@ -17,7 +17,13 @@ export class ReportFormPage implements OnInit {
   whatsapp: string = null;
   constructor(public navCtrl: NavController, private socialSharing: SocialSharing) { }
 
-  share(){
+  sharewhats(){
+    this.whatsapp = "https://api.whatsapp.com/send?phone=57"+this.numb+"&text="+this.notification;
+    console.log(this.whatsapp);
+    window.open(this.whatsapp);
+  }
+
+  sharefb(){
     this.whatsapp = "https://api.whatsapp.com/send?phone=57"+this.numb+"&text="+this.notification;
     console.log(this.whatsapp);
     this.socialSharing.share(this.whatsapp)
